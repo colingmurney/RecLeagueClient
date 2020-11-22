@@ -9,6 +9,7 @@ const initialState = {
   incorrectCredentials: false,
   register: false,
   passwordsDontMatch: false,
+  queryResults: null,
 };
 
 const loginReducer = (state = initialState, action) => {
@@ -61,12 +62,14 @@ const loginReducer = (state = initialState, action) => {
       state = {
         ...state,
         isSignedIn: true,
+        queryResults: action.payload.data,
       };
       break;
     case "ACTIVE_SESSION_REJECTED":
       state = {
         ...state,
         isSignedIn: false,
+        queryResults: null,
       };
       break;
     case "CHANGE_EMAIL":

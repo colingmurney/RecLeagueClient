@@ -11,7 +11,7 @@ class Login extends Component {
   }
 
   render() {
-    if (this.props.login.isSignedIn) return <Redirect to="/home" />;
+    if (this.props.login.isSignedIn) return <Redirect to="/" />;
     if (this.props.login.register) {
       return <Register />;
     } else {

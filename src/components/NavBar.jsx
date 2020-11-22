@@ -6,9 +6,9 @@ import { logout } from "../actions/loginAction";
 class NavBar extends Component {
   render() {
     return (
-      <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+      <nav className="navbar fixed-top bg-white border-bottom shadow-sm">
         <Link className={"my-0 mr-md-auto font-weight-bold"} to="/leagues">
-          Join a RecLeague
+          Join a Team
         </Link>
         <h4
           style={{ color: "blue" }}
@@ -17,9 +17,6 @@ class NavBar extends Component {
           RecLeague
         </h4>
         <nav className="my-2 my-md-0 mr-md-3">
-          <Link className="p-2 text-dark" to="/">
-            Something
-          </Link>
           <button
             onClick={() => this.props.logout()}
             className="p-2 text-dark"
@@ -28,10 +25,10 @@ class NavBar extends Component {
             Logout
           </button>
         </nav>
-        <Link className="btn btn-outline-primary" to="/home" role="button">
+        <Link className="btn btn-outline-primary" to="/" role="button">
           Home
         </Link>
-      </div>
+      </nav>
     );
   }
 }

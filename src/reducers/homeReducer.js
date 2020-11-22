@@ -1,6 +1,7 @@
 const initialState = {
   unauthorized: false,
   games: null,
+  page: "Home",
 };
 
 const homeReducer = (state = initialState, action) => {
@@ -16,6 +17,12 @@ const homeReducer = (state = initialState, action) => {
       state = {
         ...state,
         unauthorized: true,
+      };
+      break;
+    case "CHANGE_PAGE":
+      state = {
+        ...state,
+        page: action.payload,
       };
       break;
     default:

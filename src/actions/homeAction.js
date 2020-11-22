@@ -16,3 +16,10 @@ export const displayHome = () => {
     payload: request,
   };
 };
+
+export const changePage = (e) => {
+  return {
+    type: "CHANGE_PAGE",
+    payload: e.target.text,
+  };
+};
