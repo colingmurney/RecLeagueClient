@@ -1,4 +1,5 @@
 import axios from "axios";
+axios.defaults.withCredentials = true;
 
 export const signIn = (login) => {
   const request = axios({
@@ -28,36 +29,6 @@ export const createAccount = (player) => {
 
   return {
     type: "CREATE_ACCOUNT",
-    payload: request,
-  };
-};
-
-export const logout = () => {
-  const request = axios({
-    method: "put",
-    url: "http://localhost:64462/api/authenticate/logout",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
-  return {
-    type: "LOGOUT",
-    payload: request,
-  };
-};
-
-export const activeSession = () => {
-  const request = axios({
-    method: "get",
-    url: "http://localhost:64462/api/authenticate",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
-  return {
-    type: "ACTIVE_SESSION",
     payload: request,
   };
 };
@@ -105,5 +76,11 @@ export function loginRegisterSwitch() {
 export function rememberMeToggle() {
   return {
     type: "REMEMBER_ME_TOGGLE",
+  };
+}
+
+export function isSignedInToFalse() {
+  return {
+    type: "IS_SIGNED_IN_TO_FALSE",
   };
 }

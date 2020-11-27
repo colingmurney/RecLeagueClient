@@ -7,10 +7,10 @@ class SideBar extends Component {
     col1: "Home",
     col2: "Schedule",
     col3: "Results",
-    col4: "Notifications",
-    col5: "Register New Team",
-    col6: "Incident Report",
-    col7: "New League Requests",
+    col4: "Join Team",
+    col5: "Register Team",
+    col6: "New League Requests",
+    col7: "Notifications",
   };
   render() {
     const { page } = this.props.home;
@@ -21,6 +21,7 @@ class SideBar extends Component {
           className={this.state[x] === page ? "active" : ""}
           href="#home"
           onClick={(e) => this.props.changePage(e)}
+          key={x}
         >
           {this.state[x]}
         </a>

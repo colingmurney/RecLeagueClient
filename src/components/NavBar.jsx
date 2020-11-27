@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { logout } from "../actions/loginAction";
+import { logout } from "../actions/homeAction";
 
 class NavBar extends Component {
   render() {
     return (
       <nav className="navbar fixed-top bg-white border-bottom shadow-sm">
-        <Link className={"my-0 mr-md-auto font-weight-bold"} to="/leagues">
-          Join a Team
-        </Link>
+        <div className={"my-0 mr-md-auto font-weight-bold"} to="/leagues">
+          Welcome
+        </div>
         <h4
           style={{ color: "blue" }}
           className="my-0 mr-md-auto font-weight-normal"
@@ -19,7 +19,7 @@ class NavBar extends Component {
         <nav className="my-2 my-md-0 mr-md-3">
           <button
             onClick={() => this.props.logout()}
-            className="p-2 text-dark"
+            className="btn btn-outline-danger"
             to="/login"
           >
             Logout

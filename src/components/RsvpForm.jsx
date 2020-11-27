@@ -1,28 +1,28 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { switchToRequestStatus } from "../actions/homeAction";
+import RequestStatus from "./RequestStatus";
+import StatusConfirmed from "./StatusConfirmed";
 
 class RsvpForm extends Component {
   render() {
-    // const { queryResults } = this.props.login;
-    // {queryResults.playerGameStatus.gameStatusName}
+    const { gameStatusName } = this.props.home.queryResults.playerGameStatus;
+
     return (
-      <div className="container-fluid bg-warning">
-        <div className="row pt-2">
-          <div className="col-4">
-            Some info goes here about the staus of the player
-          </div>
-          <form className="col-6">
-            <label className="checkbox-inline mr-5">
-              <input className="mr-3" type="checkbox" value="absent" />I will be
-              there
-            </label>
-            <label className="checkbox-inline mr-5">
-              <input className="mr-3" type="checkbox" value="attending" />I
-              can't make it
-            </label>
-            <input type="button" value="Update Game Status" />
-          </form>
-        </div>
+      <div
+        className={`container-fluid ${
+          gameStatusName === "unknown"
+            ? "bg-warning text-white"
+            : "bg-success text-white"
+        }`}
+      >
+        {gameStatusName === "unknown" ? (
+          <RequestStatus />
+        ) : (
+          <StatusConfirmed
+            switchToRequestStatus={this.props.switchToRequestStatus}
+          />
+        )}
       </div>
     );
   }
@@ -37,9 +37,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // activeSession: () => {
-    //   dispatch(activeSession());
-    // },
+    switchToRequestStatus: () => {
+      dispatch(switchToRequestStatus());
+    },
   };
 };
 

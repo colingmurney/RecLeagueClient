@@ -12,12 +12,12 @@ import {
 import { connect } from "react-redux";
 
 class Register extends Component {
-  registerHandler(e) {
+  async registerHandler(e) {
     e.preventDefault();
     const { login } = this.props;
     if (login.password !== login.confirmPassword)
       return alert("Passwords must match");
-    this.props.createAccount({
+    await this.props.createAccount({
       FirstName: login.firstName,
       LastName: login.lastName,
       Email: login.email,

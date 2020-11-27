@@ -40,36 +40,6 @@ const loginReducer = (state = initialState, action) => {
         ...state,
         incorrectCredentials: true,
         isSignedIn: false,
-        // password: "",
-        // confirmPassword: "",
-      };
-      break;
-    case "LOGOUT_FULFILLED":
-      state = {
-        ...state,
-        isSignedIn: false,
-        staySignedIn: false,
-      };
-      break;
-    case "LOGOUT_REJECTED":
-      state = {
-        ...state,
-        isSignedIn: false,
-        staySignedIn: false,
-      };
-      break;
-    case "ACTIVE_SESSION_FULFILLED":
-      state = {
-        ...state,
-        isSignedIn: true,
-        queryResults: action.payload.data,
-      };
-      break;
-    case "ACTIVE_SESSION_REJECTED":
-      state = {
-        ...state,
-        isSignedIn: false,
-        queryResults: null,
       };
       break;
     case "CHANGE_EMAIL":
@@ -116,6 +86,12 @@ const loginReducer = (state = initialState, action) => {
       state = {
         ...state,
         staySignedIn: !state.staySignedIn,
+      };
+      break;
+    case "IS_SIGNED_IN_TO_FALSE":
+      state = {
+        ...state,
+        isSignedIn: false,
       };
       break;
     default:

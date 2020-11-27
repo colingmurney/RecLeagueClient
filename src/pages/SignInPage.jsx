@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import {
   signIn,
   changeEmail,
@@ -9,10 +10,10 @@ import {
 import { connect } from "react-redux";
 
 class SignInPage extends Component {
-  signInHandler(e) {
+  async signInHandler(e) {
     e.preventDefault();
     const { login } = this.props;
-    this.props.signIn({
+    await this.props.signIn({
       Email: login.email.trim(),
       Password: login.password.trim(),
       StaySignedIn: login.staySignedIn,
@@ -72,8 +73,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    signIn: (e) => {
-      dispatch(signIn(e));
+    signIn: (login) => {
+      dispatch(signIn(login));
     },
     changeEmail: (e) => {
       dispatch(changeEmail(e));
