@@ -9,8 +9,8 @@ class SideBar extends Component {
     col3: "Results",
     col4: "Join Team",
     col5: "Register Team",
-    col6: "New League Requests",
     col7: "Notifications",
+    col8: "Profile",
   };
   render() {
     const { page } = this.props.home;

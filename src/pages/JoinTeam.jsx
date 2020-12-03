@@ -62,8 +62,8 @@ const mapDispatchToProps = (dispatch) => {
     selectTeam: (team) => {
       dispatch(selectTeam(team));
     },
-    updateTeam: (team) => {
-      dispatch(updateTeam(team));
+    updateTeam: (teamname) => {
+      dispatch(updateTeam(teamname));
     },
   };
 };

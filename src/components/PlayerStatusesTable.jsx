@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 class PlayerStatusesTable extends Component {
   render() {
     const players = [];
-    this.props.playerStatuses.map((player) => {
+    this.props.playerStatuses.map((player, index) => {
       return players.push(
-        <tr key={player.PlayerId}>
+        <tr key={index}>
           <td>{player.firstName}</td>
           <td>{player.gameStatusName}</td>
         </tr>

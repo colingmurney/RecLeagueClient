@@ -37,9 +37,9 @@ class Dropdown extends Component {
 
   render() {
     const dropdownList = [];
-    this.props.options.map((item) => {
+    this.props.options.map((item, index) => {
       return dropdownList.push(
-        <option key={item} value={item}>
+        <option key={index} value={item}>
           {item}
         </option>
       );

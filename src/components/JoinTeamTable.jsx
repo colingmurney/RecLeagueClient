@@ -14,10 +14,10 @@ class JoinTeamTable extends Component {
     const { selected } = this.props;
 
     const teams = [];
-    this.props.loadedTeams.map((team) => {
+    this.props.loadedTeams.map((team, index) => {
       return teams.push(
         <tr
-          key={team}
+          key={index}
           onClick={(e) => this.handleClick(e)}
           className={team === selected ? "table-primary" : ""}
         >

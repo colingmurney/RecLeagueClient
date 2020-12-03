@@ -12,6 +12,7 @@ import JoinTeam from "../pages/JoinTeam";
 import RegisterTeam from "../pages/RegisterTeam";
 import Notifications from "../components/Notifications";
 import { moveRegionsToJoinTeamReducer } from "../actions/joinTeamAction";
+import Profile from "../pages/Profile";
 // import CaptainsReport from "../components/CaptainsReport";
 
 class Home extends Component {
@@ -44,6 +45,7 @@ class Home extends Component {
             {page === "Join Team" && <JoinTeam />}
             {page === "Register Team" && <RegisterTeam />}
             {page === "Notifications" && <Notifications />}
+            {page === "Profile" && <Profile />}
           </div>
         </div>
       </div>

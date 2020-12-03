@@ -46,22 +46,28 @@ export function selectTeam(team) {
 export function loadSports(region) {
   const request = axios({
     method: "get",
-    url: `http://localhost:64462/api/jointeam/sports/${region}`,
+    url: "http://localhost:64462/api/jointeam/sports",
     headers: {
       "Content-Type": "application/json",
     },
+    params: { region: region },
   });
   return {
     type: "LOAD_SPORTS",
     payload: request,
   };
 }
+
 export function loadTiers(region, sport) {
   const request = axios({
     method: "get",
-    url: `http://localhost:64462/api/jointeam/tiers/${region}/${sport}`,
+    url: "http://localhost:64462/api/jointeam/tiers",
     headers: {
       "Content-Type": "application/json",
+    },
+    params: {
+      region: region,
+      sport: sport,
     },
   });
   return {
@@ -73,9 +79,14 @@ export function loadTiers(region, sport) {
 export function loadTeams(region, sport, tier) {
   const request = axios({
     method: "get",
-    url: `http://localhost:64462/api/jointeam/teams/${region}/${sport}/${tier}`,
+    url: "http://localhost:64462/api/jointeam/teams",
     headers: {
       "Content-Type": "application/json",
+    },
+    params: {
+      region: region,
+      sport: sport,
+      tier: tier,
     },
   });
   return {
@@ -84,14 +95,14 @@ export function loadTeams(region, sport, tier) {
   };
 }
 
-export function updateTeam(team) {
-  const encodedTeam = encodeURIComponent(team);
+export function updateTeam(teamname) {
   const request = axios({
     method: "put",
-    url: `http://localhost:64462/api/jointeam/update/${encodedTeam}`,
+    url: "http://localhost:64462/api/jointeam/update",
     headers: {
       "Content-Type": "application/json",
     },
+    params: { teamname: teamname },
   });
   return {
     type: "UPDATE_TEAM",
