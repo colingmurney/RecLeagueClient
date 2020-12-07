@@ -16,8 +16,10 @@ import Profile from "../pages/Profile";
 // import CaptainsReport from "../components/CaptainsReport";
 
 class Home extends Component {
-  async componentDidMount() {
-    await this.props.activeSession();
+  componentDidMount() {
+    // this.props.activeSession();
+
+    // move regions to joinTeam reducer for easy access in joinTeam action
     if (this.props.home.queryResults != null) {
       this.props.moveRegionsToJoinTeamReducer(
         this.props.home.queryResults.regionNames
@@ -27,10 +29,13 @@ class Home extends Component {
 
   render() {
     const { page, queryResults } = this.props.home;
+
+    // if player data is not loaded, redirect to login
     if (queryResults == null) {
       return <Redirect to="/login" />;
     }
 
+    // conditionally render pages per SideBar current value
     return (
       <div>
         <NavBar />

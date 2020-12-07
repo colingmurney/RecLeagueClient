@@ -10,6 +10,11 @@ import {
 } from "../actions/joinTeamAction";
 
 class Dropdown extends Component {
+  /*
+  Component is used for Region, Sport, and Tier dropdown menus
+  */
+
+  // handle the dropdown menu selections
   handleChange(e) {
     const {
       type,
@@ -23,6 +28,7 @@ class Dropdown extends Component {
     const { region, sport } = this.props.joinTeam;
     const { value } = e.target;
 
+    // type controls which dropdown has been selected and which API to call
     if (type === "Region") {
       loadSports(value);
       selectRegion(value);
@@ -37,6 +43,8 @@ class Dropdown extends Component {
 
   render() {
     const dropdownList = [];
+
+    // dynamically display the filtered options for the dropdown
     this.props.options.map((item, index) => {
       return dropdownList.push(
         <option key={index} value={item}>
@@ -55,6 +63,7 @@ class Dropdown extends Component {
               onChange={(e) => this.handleChange(e)}
             >
               <option disabled value={this.props.type}>
+                {/* // 'Region', 'Sport', or 'Tier' */}
                 {this.props.type}
               </option>
               {dropdownList}

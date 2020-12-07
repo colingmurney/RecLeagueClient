@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 
 class JoinTeamTable extends Component {
+  // update state with the team clicked on
   handleClick(e) {
     console.log(e.target.innerText);
     this.props.selectTeam(e.target.innerText);
   }
 
+  // update user's team in DB using current 'team' state
   handleUpdate() {
     this.props.updateTeam(this.props.selected);
   }
@@ -13,6 +15,7 @@ class JoinTeamTable extends Component {
   render() {
     const { selected } = this.props;
 
+    // dynamically create table rows and data using 'loadedTeams' from state
     const teams = [];
     this.props.loadedTeams.map((team, index) => {
       return teams.push(

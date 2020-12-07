@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 
 class RegisterTeamForm extends Component {
-  async handleSumbit(e) {
+  //use current 'team' in state to request new team on submit
+  handleSumbit(e) {
     e.preventDefault();
     const { team, region, sport, tier } = this.props.joinTeam;
-    await this.props.createTeam({
+    this.props.createTeam({
       TeamName: team,
       RegionName: region,
       SportName: sport,
@@ -13,6 +14,7 @@ class RegisterTeamForm extends Component {
   }
 
   render() {
+    // input form that in only displayed when Region, Sport and Tier have been selected
     return (
       <form className="form-inline" onSubmit={(e) => this.handleSumbit(e)}>
         <div className="form-group">

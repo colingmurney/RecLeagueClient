@@ -3,6 +3,8 @@ import React, { Component } from "react";
 class ResultTable extends Component {
   render() {
     const { results } = this.props;
+
+    // dynamically create table rows and data for users previous games
     const games = [];
     results.map((game, index) => {
       return games.push(

@@ -18,6 +18,9 @@ class JoinTeam extends Component {
       loadedTiers,
       loadedTeams,
     } = this.props.joinTeam;
+
+    // display dropdowns to filter teams
+    // display available teams in table
     return (
       <div className="container-fluid">
         <div className="row">

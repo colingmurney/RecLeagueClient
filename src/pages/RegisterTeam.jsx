@@ -22,6 +22,9 @@ class RegisterTeam extends Component {
       loadedTiers,
       loadedTeams,
     } = this.props.joinTeam;
+
+    // display dropdowns to filter teams
+    // input form for new Team name
     return (
       <div className="container-fluid">
         <div className="row">

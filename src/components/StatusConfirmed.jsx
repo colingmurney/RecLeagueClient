@@ -3,7 +3,8 @@ import React, { Component } from "react";
 class StatusConfirmed extends Component {
   state = {};
   render() {
-    //add a button that changes something in state to toggle to change RequestStatus view
+    // display user message that status is confirmed
+    // option to change status
     return (
       <div className="row pt-2 mb-4">
         <span className="col-5">

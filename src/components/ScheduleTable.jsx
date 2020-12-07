@@ -3,6 +3,8 @@ import React, { Component } from "react";
 class ScheduleTable extends Component {
   render() {
     const { schedule } = this.props;
+
+    // dynamically create table rows and data for users upcoming games
     const games = [];
     schedule.map((game, index) => {
       return games.push(

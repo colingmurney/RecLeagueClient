@@ -3,7 +3,10 @@ import { connect } from "react-redux";
 
 class CaptainsReport extends Component {
   render() {
-    // const { queryResults } = this.props.login;
+    /*
+    Create a component where the captain reports the previous game score
+    Include other components such as confirming the other teams attendance
+    */
 
     return <div>The captains report form</div>;
   }

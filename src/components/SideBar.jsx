@@ -3,6 +3,8 @@ import { changePage } from "../actions/homeAction";
 import { connect } from "react-redux";
 
 class SideBar extends Component {
+  // NavBar pages will be displayed in this order
+  // Page names must match condition in Home container for conditional rendering
   state = {
     col1: "Home",
     col2: "Schedule",
@@ -15,11 +17,13 @@ class SideBar extends Component {
   render() {
     const { page } = this.props.home;
     const pages = [];
+
+    // dynamicallly render links using all pages in state
     for (var x in this.state) {
       pages.push(
         <a
           className={this.state[x] === page ? "active" : ""}
-          href="#home"
+          href={`#${this.state[x]}`}
           onClick={(e) => this.props.changePage(e)}
           key={x}
         >

@@ -3,14 +3,14 @@ import { changeStatus, updateGameStatus } from "../actions/homeAction";
 import { connect } from "react-redux";
 
 class RequestStatus extends Component {
-  async handleStatusUpdate(e) {
+  // update user game status on submit
+  handleStatusUpdate(e) {
     e.preventDefault();
-    await this.props.updateGameStatus(this.props.home.playerGameStatus);
+    this.props.updateGameStatus(this.props.home.playerGameStatus);
   }
 
   render() {
     return (
-      // <div className="container-fluid bg-warning">
       <div className="row pt-2 mb-4">
         <div className="col5 ml-3 mb-3">
           Please let your teammates and oppenents know if you will be able to
@@ -44,7 +44,6 @@ class RequestStatus extends Component {
           </button>
         </form>
       </div>
-      // </div>
     );
   }
 }

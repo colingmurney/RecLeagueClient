@@ -4,7 +4,14 @@ import ScheduleTable from "../components/ScheduleTable";
 
 class Schedule extends Component {
   render() {
-    return <ScheduleTable schedule={this.props.home.queryResults.schedule} />;
+    const { schedule } = this.props.home.queryResults;
+
+    // display upcoming games if user has any
+    if (schedule.length) {
+      return <ScheduleTable schedule={schedule} />;
+    } else {
+      return "You have no scheduled games.";
+    }
   }
 }
 

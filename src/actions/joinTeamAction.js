@@ -2,6 +2,7 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 
 export function moveRegionsToJoinTeamReducer(regions) {
+  // runs on componentDidMount to transfer reducer regions to joinTeam reducer
   return {
     type: "MOVE_REGION",
     payload: regions,
@@ -9,6 +10,7 @@ export function moveRegionsToJoinTeamReducer(regions) {
 }
 
 export function changeTeam(e) {
+  // changes team in state to user input when creating a team
   return {
     type: "CHANGE_TEAM",
     payload: e.target.value,
@@ -16,6 +18,7 @@ export function changeTeam(e) {
 }
 
 export function selectRegion(region) {
+  // changes region in state to user selection from drop down
   return {
     type: "SELECT_REGION",
     payload: region,
@@ -23,6 +26,7 @@ export function selectRegion(region) {
 }
 
 export function selectSport(sport) {
+  // changes sport in state to user selection from drop down
   return {
     type: "SELECT_SPORT",
     payload: sport,
@@ -30,6 +34,7 @@ export function selectSport(sport) {
 }
 
 export function selectTier(tier) {
+  // changes tier in state to user selection from drop down
   return {
     type: "SELECT_TIER",
     payload: tier,
@@ -37,6 +42,7 @@ export function selectTier(tier) {
 }
 
 export function selectTeam(team) {
+  // changes team in state to user selection from joinTeamTable
   return {
     type: "SELECT_TEAM",
     payload: team,
@@ -44,6 +50,7 @@ export function selectTeam(team) {
 }
 
 export function loadSports(region) {
+  // fetches all available sports for user region selection
   const request = axios({
     method: "get",
     url: "http://localhost:64462/api/jointeam/sports",
@@ -59,6 +66,7 @@ export function loadSports(region) {
 }
 
 export function loadTiers(region, sport) {
+  // fetches all available tiers for user region and sport selection
   const request = axios({
     method: "get",
     url: "http://localhost:64462/api/jointeam/tiers",
@@ -77,6 +85,7 @@ export function loadTiers(region, sport) {
 }
 
 export function loadTeams(region, sport, tier) {
+  // fetches all available teams for user region, sport and tier selection
   const request = axios({
     method: "get",
     url: "http://localhost:64462/api/jointeam/teams",
@@ -96,6 +105,7 @@ export function loadTeams(region, sport, tier) {
 }
 
 export function updateTeam(teamname) {
+  // update user's team in DB with the current state 'team' field
   const request = axios({
     method: "put",
     url: "http://localhost:64462/api/jointeam/update",
@@ -111,6 +121,7 @@ export function updateTeam(teamname) {
 }
 
 export function createTeam(team) {
+  // create new team in DB using current state 'team', 'region', 'sport' and 'tier' fields
   console.log(team);
   const request = axios({
     method: "post",

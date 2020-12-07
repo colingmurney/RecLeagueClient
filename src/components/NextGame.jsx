@@ -5,14 +5,16 @@ import { connect } from "react-redux";
 
 class NextGame extends Component {
   render() {
-    //make copy of array with only the first item
+    const schedule = this.props.home.queryResults;
+    // create copy of scheduled games array with only the first item (next game)
     const firstGame = [this.props.home.queryResults.schedule[0]];
 
     return (
       <div>
         {/* Details of the next game only */}
-        <ScheduleTable schedule={firstGame} />
+        {schedule.length && <ScheduleTable schedule={firstGame} />}
 
+        {/* Player game statuses for each team in user's upcoming games */}
         <div className="container-fluid mt-5">
           <div className="row">
             <div className="col-4">

@@ -8,6 +8,7 @@ class RsvpForm extends Component {
   render() {
     const { gameStatusName } = this.props.home.queryResults.playerGameStatus;
 
+    // dynamically modify colour of div and component rendered
     return (
       <div
         className={`container-fluid ${

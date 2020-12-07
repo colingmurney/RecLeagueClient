@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 class PlayerStatusesTable extends Component {
   render() {
+    // dynamically create table rows and data for each object in playerStatuses array
     const players = [];
     this.props.playerStatuses.map((player, index) => {
       return players.push(

@@ -4,7 +4,14 @@ import ResultTable from "../components/ResultTable";
 
 class Results extends Component {
   render() {
-    return <ResultTable results={this.props.home.queryResults.results} />;
+    const schedule = this.props.home.queryResults;
+
+    // display previous games if user has any
+    if (schedule.length) {
+      return <ResultTable results={this.props.home.queryResults.results} />;
+    } else {
+      return "You have no results from previous games.";
+    }
   }
 }
 

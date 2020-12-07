@@ -10,10 +10,11 @@ import {
 import { connect } from "react-redux";
 
 class SignInPage extends Component {
-  async signInHandler(e) {
+  // try to sign in user onSubmit
+  signInHandler(e) {
     e.preventDefault();
     const { login } = this.props;
-    await this.props.signIn({
+    this.props.signIn({
       Email: login.email.trim(),
       Password: login.password.trim(),
       StaySignedIn: login.staySignedIn,
